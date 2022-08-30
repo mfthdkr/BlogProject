@@ -1,0 +1,60 @@
+﻿@model EntityLayer.Concrete.Writer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+<section class="main-content-w3layouts-agileits">
+    <div class="container">
+        <a class="tittle">Yazar kayıt sayfası</a>
+        <div class="inner-sec">
+            <div class="login p-5 bg-light mx-auto mw-100">
+
+                @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+                {
+                    <div class="form-row">
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom01">Adınız Soyadınız</label>
+                            @Html.TextBoxFor(p=>p.WriterName)
+                            @Html.ValidationMessageFor(p=>p.WriterName)
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="validationCustom02">Mail Adresi</label>
+                            @Html.TextBoxFor(p=>p.WriterMail)
+                            @Html.ValidationMessageFor(p=>p.WriterMail)
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword1 mb-2">Şifre</label>
+                            @Html.TextBoxFor(p=>p.WriterPassword)
+                            @Html.ValidationMessageFor(p=>p.WriterPassword)
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="exampleInputPassword2 mb-2">Görsel Dosya Yolu</label>
+                            @Html.TextBoxFor(p=>p.WriterImage)
+                            @Html.ValidationMessageFor(p=>p.WriterImage)
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mb-4">Kayıt Ol</button>
+                    <p>
+                        <a href="#" id="btn1">Şartları kabul ettim</a>
+                    </p>
+                }
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <script>
+        $('#btn1').click(function() {
+           swal("Mailinize bilgilendirme mesajlarının gelmesiniz kabul etmiş olursunuz.");
+        });
+    </script>
+</section>
+
+

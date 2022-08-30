@@ -2,44 +2,46 @@
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 
 namespace BusinessLayer.Concrete
 {
     public class CategoryManager: ICategoryService
     {
-        private readonly EfCategoryRepository _efCategoryRepository;
+        private ICategoryDal _categoryDal;
 
-        public CategoryManager()
+        public CategoryManager(ICategoryDal categoryDal)
         {
-            _efCategoryRepository = new EfCategoryRepository();
+            _categoryDal = categoryDal;
         }
+
 
         public void CategoryAdd(Category category)
         {
-            _efCategoryRepository.Insert(category);
+            _categoryDal.Insert(category);
         }
 
         public void CategoryDelete(Category category)
         {
-            _efCategoryRepository.Delete(category);
+            _categoryDal.Delete(category);
 
         }
 
         public void CategoryUpdate(Category category)
         {
-            _efCategoryRepository.Update(category);
+            _categoryDal.Update(category);
 
         }
 
         public List<Category> GetList()
         {
-            return _efCategoryRepository.GetListAll();
+            return _categoryDal.GetListAll();
         }
 
         public Category GetById(int id)
         {
-            return _efCategoryRepository.GetById(id);
+            return _categoryDal.GetById(id);
         }
     }
 }

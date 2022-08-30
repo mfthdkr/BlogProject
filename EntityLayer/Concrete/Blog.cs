@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Blog
+    public class Blog : IEnumerable
     {
         [Key]
         public int BlogId { get; set; }
@@ -21,5 +22,6 @@ namespace EntityLayer.Concrete
         public Category Category { get; set; }
         public List<Comment> Comments { get; set; }
 
+        
     }
 }

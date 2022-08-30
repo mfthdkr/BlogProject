@@ -7,9 +7,9 @@ using EntityLayer.Concrete;
 using Microsoft.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccessLayer.Concrete
+namespace DataAccessLayer.Concrete.Context
 {
-    public class BlogContext: DbContext
+    public class BlogContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
